@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatorPage implements OnInit {
 
-  creators = [{avatar: "assets/icon/happy-outline.svg", name: "Marko" }, {avatar: "assets/icon/refresh-circle.svg", name: "Olga"}];
+  creators = [{avatar: "assets/creator/happy-outline.svg", job: "développeur", name: "Marko" }, {avatar: "assets/creator/refresh-circle.svg", job: "professeur", name: "Olga"},
+  {avatar: "assets/creator/darth-vader.jpg", job: "Mère", name: "Andjelija" }];
 
   constructor() { }
 

@@ -8,12 +8,14 @@
 </ion-header>
 
 <ion-content>
-  
   <ion-item *ngFor = "let creator of creators">
     <ion-thumbnail slot="start">
       <img [src]="creator.avatar" [alt]="creator.name">
     </ion-thumbnail>
-    <ion-label>{{creator.name}}</ion-label>
+    <ion-label>
+      <h2>{{creator.name}}</h2>
+      <p>{{creator.job}}</p>
+    </ion-label>
   </ion-item>
 
 </ion-content>
