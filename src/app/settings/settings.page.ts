@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPage implements OnInit {
 
-  user = {pseudo: '', ville: '', darkmode: true};
+  settings = {pseudo: '', ville: '', darkmode: false};
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class SettingsPage implements OnInit {
   }
 
   logForm(){
-    console.log(this.user);
+    console.log(this.settings);
   }
 
 }

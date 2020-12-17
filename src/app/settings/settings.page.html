@@ -20,14 +20,14 @@
       <ion-label>Pseudo</ion-label>
       <ion-input
         type="text"
-        [(ngModel)]="user.pseudo"
+        [(ngModel)]="settings.pseudo"
         name="pseudo"
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Ville</ion-label>
       <ion-select
-        [(ngModel)]="user.ville"
+        [(ngModel)]="settings.ville"
         placeholder="Choisir une ville"
         name="ville"
       >
@@ -39,11 +39,11 @@
 
     <ion-item>
       <ion-label>Dark mode</ion-label>
-      <ion-toggle [(ngModel)]="user.darkmode" name="darkmode"></ion-toggle>
+      <ion-toggle [(ngModel)]="settings.darkmode" name="darkmode"></ion-toggle>
   </ion-item>
 
     <ion-button color="primary" type="submit" block
-      >Enregistrer utilisateur</ion-button
+      >Sauvegarder</ion-button
     >
   </form>
 </ion-content>
