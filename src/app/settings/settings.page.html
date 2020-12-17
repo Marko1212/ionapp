@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Réglages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Ici, on aura un formulaire avec les infos suivantes 
+        - Pseudo (ion-input)
+        - Ville (ion-select)
+        - Toggle pour le dark mode (ion-toggle)
+        - Petit button (ion-button)
+-->
+
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Pseudo</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="user.pseudo"
+        name="pseudo"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ville</ion-label>
+      <ion-select
+        [(ngModel)]="user.ville"
+        placeholder="Choisir une ville"
+        name="ville"
+      >
+        <ion-select-option value="Belgrade">Belgrade</ion-select-option>
+        <ion-select-option value="Paris">Paris</ion-select-option>
+        <ion-select-option value="Moscou">Moscou</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Dark mode</ion-label>
+      <ion-toggle [(ngModel)]="user.darkmode" name="darkmode"></ion-toggle>
+  </ion-item>
+
+    <ion-button color="primary" type="submit" block
+      >Enregistrer utilisateur</ion-button
+    >
+  </form>
+</ion-content>
