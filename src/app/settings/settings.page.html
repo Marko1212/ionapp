@@ -15,21 +15,21 @@
         - Petit button (ion-button)
 -->
 
-  <form (ngSubmit)="logForm()">
+  <form (ngSubmit)="save()">
     <ion-item>
       <ion-label>Pseudo</ion-label>
       <ion-input
         type="text"
-        [(ngModel)]="settings.pseudo"
-        name="pseudo"
+        [(ngModel)]="settings.username"
+        name="username"
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Ville</ion-label>
       <ion-select
-        [(ngModel)]="settings.ville"
+        [(ngModel)]="settings.city"
         placeholder="Choisir une ville"
-        name="ville"
+        name="city"
       >
         <ion-select-option value="Belgrade">Belgrade</ion-select-option>
         <ion-select-option value="Paris">Paris</ion-select-option>
@@ -38,12 +38,17 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Dark mode</ion-label>
-      <ion-toggle [(ngModel)]="settings.darkmode" name="darkmode"></ion-toggle>
+      <ion-label>Toggle Dark Mode</ion-label>
+      <ion-toggle (ionChange) = "toggleDarkMode()" [(ngModel)] = "settings.darkMode" name="darkMode"></ion-toggle>
   </ion-item>
 
     <ion-button color="primary" type="submit" block
       >Sauvegarder</ion-button
     >
+
   </form>
+
+  <ion-button color="danger" block (click) ="removeData()"
+  >Supprimer mes données</ion-button
+>
 </ion-content>
