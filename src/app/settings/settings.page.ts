@@ -11,13 +11,21 @@ export class SettingsPage implements OnInit {
 
   settings = {username: '', city: '', darkMode: false};
 
+  saving = false;
+
+  success = false;
+
   constructor(private storage: Storage) { }
 
   ngOnInit() {
-   
-    this.storage.get("settings").then(settings => this.settings = settings);
-   
-  }
+
+    this.storage.get("settings").then(settings => {
+      if (settings!==null) {
+      this.settings = settings;
+      }
+  });
+
+}
 
   toggleDarkMode() {
     document.body.classList.toggle('dark');
@@ -28,8 +36,13 @@ export class SettingsPage implements OnInit {
     //on va utiliser le service storage pour stocker 
     //les settings sur le téléphone
 
+    this.saving = true;
 
-    this.storage.set("settings", this.settings);
+    this.storage.set("settings", this.settings).then(() => {
+      setTimeout(() => this.saving = false, 2000);
+      setTimeout(() => this.success = true, 2000);
+      setTimeout(() => this.success = false, 10000);
+    });
   }
 
   removeData(){

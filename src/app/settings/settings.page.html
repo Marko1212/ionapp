@@ -39,16 +39,36 @@
 
     <ion-item>
       <ion-label>Toggle Dark Mode</ion-label>
-      <ion-toggle (ionChange) = "toggleDarkMode()" [(ngModel)] = "settings.darkMode" name="darkMode"></ion-toggle>
-  </ion-item>
+      <ion-toggle
+        (ionChange)="toggleDarkMode()"
+        [(ngModel)]="settings.darkMode"
+        name="darkMode"
+      ></ion-toggle>
+    </ion-item>
 
-    <ion-button color="primary" type="submit" block
-      >Sauvegarder</ion-button
-    >
+    <div class="ion-padding ion-text-center">
+      <ion-button
+        expand="block"
+        color="primary"
+        type="submit"
+        [disabled]="saving"
+        >Sauvegarder
+        <ion-spinner
+          name="dots"
+          *ngIf="saving"
+          class="ion-margin-start"
+        ></ion-spinner>
+      </ion-button>
 
+      <ion-text *ngIf="success" color="success"
+        >Vos réglages ont été enregistrés.</ion-text
+      >
+    </div>
   </form>
 
-  <ion-button color="danger" block (click) ="removeData()"
-  >Supprimer mes données</ion-button
->
+  <div class="ion-padding">
+    <ion-button expand="block" color="danger" block (click)="removeData()"
+      >Supprimer mes données</ion-button
+    >
+  </div>
 </ion-content>
