@@ -14,14 +14,16 @@ export class ListPage implements OnInit {
   constructor(private http: HttpClient) { }
 
   ionViewWillEnter() {
+
     this.http.get(`https://randomuser.me/api/?results=100`)
-      .pipe(
-        map(response => response['results'])
-      )
-      .subscribe(users => this.items = users);
+    .pipe(
+      map(response => response['results'])
+    )
+    .subscribe(users => this.items = users);
+   
   }
 
   ngOnInit() {
-
+  
   }
 }
