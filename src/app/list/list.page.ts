@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { map } from 'rxjs/operators';
+import { UserService } from './../services/user.service';
 
 @Component({
   selector: 'app-list',
@@ -11,16 +12,18 @@ import { map } from 'rxjs/operators';
 export class ListPage implements OnInit {
   items: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private userService: UserService) { }
 
   ionViewWillEnter() {
 
-    this.http.get(`https://randomuser.me/api/?results=100`)
+ /*    this.http.get(`https://randomuser.me/api/?results=100`)
     .pipe(
       map(response => response['results'])
     )
     .subscribe(users => this.items = users);
-   
+    */
+
+    this.userService.getUsers().then(users => this.items = users['results']);
   }
 
   ngOnInit() {
