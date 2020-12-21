@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 import { map } from 'rxjs/operators';
 import { UserService } from './../services/user.service';
@@ -10,9 +11,9 @@ import { UserService } from './../services/user.service';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  items: any[] = [];
+  users: any[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private nav: NavController) { }
 
   ionViewWillEnter() {
 
@@ -26,12 +27,16 @@ export class ListPage implements OnInit {
     this.userService.getUsers().then(users => 
       {
         console.log(users);
-        this.items = users['results']; //ou users.results
+        this.users = users['results']; //ou users.results
         
       });
   }
 
   ngOnInit() {
   
+  }
+
+  openUser() {
+
   }
 }
