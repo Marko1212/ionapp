@@ -61,7 +61,7 @@ export class ListPage implements OnInit {
     this.userService.getUsers(this.page).then(users => {
         console.log(users);
         this.users = [...this.users, ...users['results']];
-      //TO DO : complete.
+        event.target.complete();
     });
 
   }
