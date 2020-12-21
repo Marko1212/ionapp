@@ -15,6 +15,8 @@ export class ListPage implements OnInit {
 
   skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+  page = 1;
+
   constructor(private userService: UserService, private router: Router) { }
 
   ionViewWillEnter() {
@@ -30,7 +32,7 @@ export class ListPage implements OnInit {
     .subscribe(users => this.items = users);
     */
 
-    this.userService.getUsers().then(users => 
+    this.userService.getUsers(this.page).then(users => 
       {
         console.log(users);
 
@@ -38,6 +40,8 @@ export class ListPage implements OnInit {
         setTimeout(() => this.users = users['results'], 5000); //ou users.results
         
       });
+
+
   }
 
   ngOnInit() {
@@ -48,6 +52,17 @@ export class ListPage implements OnInit {
 
     console.log(user);
     this.router.navigate(['/user-detail'], {state : {keyUser: user}});
+
+  }
+
+  loadData(event) {
+    console.log(event);
+    this.page++; //page 2 si on est sur la page 1
+    this.userService.getUsers(this.page).then(users => {
+        console.log(users);
+        this.users = [...this.users, ...users['results']];
+      //TO DO : complete.
+    });
 
   }
 }
