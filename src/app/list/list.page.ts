@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 import { map } from 'rxjs/operators';
 import { UserService } from './../services/user.service';
@@ -13,9 +13,15 @@ import { UserService } from './../services/user.service';
 export class ListPage implements OnInit {
   users: any[] = [];
 
-  constructor(private userService: UserService, private nav: NavController) { }
+  skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  constructor(private userService: UserService, private router: Router) { }
 
   ionViewWillEnter() {
+
+    this.users = [];
+    //on reset la liste à liste vide à chaque fois qu'on arrive
+    //sur la page
 
  /*    this.http.get(`https://randomuser.me/api/?results=100`)
     .pipe(
@@ -27,7 +33,9 @@ export class ListPage implements OnInit {
     this.userService.getUsers().then(users => 
       {
         console.log(users);
-        this.users = users['results']; //ou users.results
+
+        //le setTimeout va nous permettre de tester le skeleton
+        setTimeout(() => this.users = users['results'], 5000); //ou users.results
         
       });
   }
@@ -36,7 +44,10 @@ export class ListPage implements OnInit {
   
   }
 
-  openUser() {
+  openUser(user) {
+
+    console.log(user);
+    this.router.navigate(['/user-detail'], {state : {keyUser: user}});
 
   }
 }

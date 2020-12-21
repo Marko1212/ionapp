@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>user-detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{user.name.first}} {{user.name.last}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-avatar>
+    <img [src]="user.picture.large" />
+    <!--l'attribut alt ne sert à rien sur les applis mobiles -->
+  </ion-avatar>
 
+  <ion-card-header>
+    <ion-card-subtitle>{{user.location.country}}</ion-card-subtitle>
+    <ion-card-title>{{user.name.first}} {{user.name.last}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+  <!--   {{user | json }} -->
+    <p>Ville: {{user.location.city}}</p>
+    <p>Code postal: {{user.location.postcode}}</p>
+    <p>Rue: {{user.location.street.name}} {{user.location.street.number}}</p>
+    <p>Age: {{user.dob.age}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Téléphone: {{user.phone}}</p>
+  </ion-card-content>
+  </ion-card>
 </ion-content>
