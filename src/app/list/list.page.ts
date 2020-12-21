@@ -23,7 +23,12 @@ export class ListPage implements OnInit {
     .subscribe(users => this.items = users);
     */
 
-    this.userService.getUsers().then(users => this.items = users['results']);
+    this.userService.getUsers().then(users => 
+      {
+        console.log(users);
+        this.items = users['results']; //ou users.results
+        
+      });
   }
 
   ngOnInit() {
