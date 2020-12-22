@@ -60,8 +60,16 @@ export class ListPage implements OnInit {
     this.page++; //page 2 si on est sur la page 1
     this.userService.getUsers(this.page).then(users => {
         console.log(users);
+        //opérateur spread de ES6 pour concaténer 2 tableaux
         this.users = [...this.users, ...users['results']];
+        //il faut arrêter l'événement quand les 20 users ont été chargés
+        //sinon Ionic 'croit' que le chargement est toujours en cours et
+        // on est bloqué, de nouveaux users ne sont pas chargés
+        //très important de faire event.target.complete()
         event.target.complete();
+        if (this.page === 5) {
+          event.target.disabled = true;
+        }
     });
 
   }
