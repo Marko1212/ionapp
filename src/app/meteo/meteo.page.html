@@ -1,0 +1,57 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Météo à {{ settings.city }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" offset="3" class="ion-text-center">
+        <h2>{{ settings.city }}</h2>
+        <div>
+          <img
+            src="https://www.prevision-meteo.ch/style/images/icon/ensoleille-big.png"
+            alt="{{ settings.city }}">
+        </div>
+        <h3>Description</h3>
+        <h4> {{meteo?.current_condition.tmp }} &deg;C</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label>
+              <h2><strong>Pression</strong>: {{meteo?.current_condition.pressure }}hPa</h2>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <h2><strong>Humidité: </strong> {{meteo?.current_condition.humidity }}%</h2>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <h2><strong>Lever du soleil: </strong> {{meteo?.city_info.sunrise }}</h2>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <h2><strong>Coucher du soleil: </strong> {{meteo?.city_info.sunset }}</h2>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <h2><strong>Coordonnées: </strong> {{meteo?.city_info.latitude }}&deg;, {{meteo?.city_info.longitude }}&deg;</h2>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
