@@ -9,10 +9,10 @@ export class MeteoService {
  constructor(private http:  HttpClient) { }
 
 
- getMeteo(settings) {
-   console.log(settings.city);
+ getMeteo(city) {
+   console.log(city);
   
-    return this.http.get('https://www.prevision-meteo.ch/services/json/' + settings.city).toPromise();
+    return this.http.get('https://www.prevision-meteo.ch/services/json/' + city).toPromise();
   }
 
 

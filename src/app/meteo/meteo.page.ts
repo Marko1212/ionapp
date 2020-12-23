@@ -38,7 +38,7 @@ export class MeteoPage implements OnInit {
 
       }
       
-      this.meteoService.getMeteo(this.settings).then(meteo => 
+      this.meteoService.getMeteo(this.settings.city).then(meteo => 
       {
         console.log(meteo);
         this.meteo = meteo;
