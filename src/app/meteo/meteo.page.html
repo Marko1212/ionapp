@@ -15,10 +15,10 @@
         <h2>{{ settings.city }}</h2>
         <div>
           <img
-            src="https://www.prevision-meteo.ch/style/images/icon/ensoleille-big.png"
+            src="{{ meteo?.current_condition.icon_big }}"
             alt="{{ settings.city }}">
         </div>
-        <h3>Description</h3>
+        <h3>{{meteo?.current_condition.condition}}</h3>
         <h4> {{meteo?.current_condition.tmp }} &deg;C</h4>
       </ion-col>
     </ion-row>
