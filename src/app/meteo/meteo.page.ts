@@ -30,7 +30,7 @@ export class MeteoPage implements OnInit {
 
       if ((settings === null) || !settings.city) {  
       
-      this.settings.city = 'Paris';
+      this.settings.city = 'Valenciennes';
 
       } else {
 

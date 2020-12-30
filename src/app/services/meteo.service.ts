@@ -11,7 +11,7 @@ export class MeteoService {
 
  getMeteo(city) {
    console.log(city);
-  
+    //API contient uniquement la météo des villes en France, Belgique et Suisse
     return this.http.get('https://www.prevision-meteo.ch/services/json/' + city).toPromise();
   }
 
