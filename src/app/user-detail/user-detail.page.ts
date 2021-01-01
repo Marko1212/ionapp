@@ -11,7 +11,7 @@ export class UserDetailPage implements OnInit {
   user : any = {};
   //si on met juste : user; là c'est comme si on écrivait : user = null; mieux vaut éviter celà
   // on type user avec any
-  //on initialise l'objet user comme un objet vide
+  //puis on initialise l'objet user comme un objet vide
 
   constructor(private router: Router) { }
 
